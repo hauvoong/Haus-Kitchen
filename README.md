@@ -8,6 +8,7 @@
 - [Usage](#usage)
 - [Testing](#testing)
 - [Entity Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+- [Wireframes](#wireframes)
 - [AI Usage](#ai-usage)
 - [User Stories](#user-stories)
 - [Credits](#credits)
@@ -63,6 +64,9 @@ python manage.py test
 
 ## Entity Relationship Diagram (ERD)
 Include or link to your ERD here (image or diagram tool link).
+
+## Wireframes
+Screenshots of wireframes
 
 ## AI Usage
 Describe any AI/ML features, models, or APIs used in the project.
