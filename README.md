@@ -23,8 +23,9 @@ A brief description of the project, its goals, and what problems it solves.
 ## Tech Stack
 - **Backend:** Python, Django
 - **Database:** (e.g., PostgreSQL, SQLite)
-- **Frontend:** (e.g., HTML, CSS, JavaScript, React)
-- **Other:** (e.g., Docker, Redis, Celery)
+- **Frontend:** (e.g., HTML, CSS, JavaScriptl;.///
+)
+
 
 ## Getting Started
 ### Prerequisites
@@ -63,17 +64,18 @@ python manage.py test
 ```
 
 ## Entity Relationship Diagram (ERD)
-Include or link to your ERD here (image or diagram tool link).
+![ERD image](assets/images/readme/ERD1.png)
 
 ## Wireframes
-Screenshots of wireframes
+![Wireframe screenshot](assets/images/readme/wf2.png)
+![Wireframe screenshot](assets/images/readme/wf3.png)
+![Wireframe screenshot](assets/images/readme/wf1.png)
 
 ## AI Usage
 Describe any AI/ML features, models, or APIs used in the project.
 
 ## User Stories
-- As a [user type], I want to [goal], so that [reason].
-- (Add more user stories here)
+https://github.com/users/hauvoong/projects/9
 
 ## Credits
 - List contributors, libraries, or resources to credit.
