@@ -1,4 +1,4 @@
-from recipes.views import my_recipes
+
 
 """
 URL configuration for hk_recipes project.
@@ -17,10 +17,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('recipes/', my_recipes, name='recipes'),
+    path("", include("recipes.urls"), name="recipes-urls"),
     
 ]
