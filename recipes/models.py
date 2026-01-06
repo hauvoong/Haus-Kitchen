@@ -12,6 +12,7 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    excerpt = models.TextField(blank=True)
 
     class Meta:
         ordering = ["-created_at"]
