@@ -64,12 +64,12 @@ python manage.py test
 ```
 
 ## Entity Relationship Diagram (ERD)
-![ERD image](assets/images/readme/ERD1.png)
+![ERD image](static/assets/images/readme/ERD1.png)
 
 ## Wireframes
-![Wireframe screenshot](assets/images/readme/wf2.png)
-![Wireframe screenshot](assets/images/readme/wf3.png)
-![Wireframe screenshot](assets/images/readme/wf1.png)
+![Wireframe screenshot](static/assets/images/readme/wf2.png)
+![Wireframe screenshot](static/assets/images/readme/wf3.png)
+![Wireframe screenshot](static/assets/images/readme/wf1.png)
 
 ## AI Usage
 Describe any AI/ML features, models, or APIs used in the project.
