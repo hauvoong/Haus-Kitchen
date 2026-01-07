@@ -12,6 +12,21 @@
       <!-- Content goes directly underneath this -->
       {{ favourite.recipe.content | safe }}
     </div>
+
+    <div class="container mt-5">
+  <h2>My Favourite Recipes</h2>
+  <ul>
+    {% for fav in favourites %}
+      <li>
+        <a href="{% url 'recipe_detail' fav.recipe.slug %}">{{ fav.recipe.title }}</a>
+      </li>
+    {% empty %}
+      <li>You have no favourite recipes yet.</li>
+    {% endfor %}
+  </ul>
+</div>
+
+
   </div>
   <div class="row">
     <div class="col text-right">

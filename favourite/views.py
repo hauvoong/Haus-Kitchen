@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect, get_object_or_404
 from favourite.models import Favourite
+from recipes.models import Recipe
+from django.contrib.auth.decorators import login_required
+from .models import Favourite
 
 # Create your views here.
 def favourite_recipes(request):
@@ -19,4 +22,14 @@ def favourite_recipes(request):
         {"favourites": favourites},
     )
 
-  
+@login_required
+def add_to_favourites(request, recipe_id):
+    if request.method == "POST":
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+        Favourite.objects.get_or_create(user=request.user, recipe=recipe)
+    return redirect(request.META.get('HTTP_REFERER', 'recipes:index'))  # Redirects back to previous page
+
+
+def favourites_list(request):
+    favourites = Favourite.objects.filter(user=request.user)
+    return render(request, 'favourite/favourites.html', {'favourites': favourites})

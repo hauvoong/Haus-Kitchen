@@ -7,7 +7,15 @@
             <div class="col-md-6 masthead-text">
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="post-title">{{ recipe.title }}</h1>
-                <!-- the recipe's created date goes after -->
+                <!-- Button to add to favourites -->
+
+                 {% if user.is_authenticated %}
+                <form method="post" action="{% url 'add_to_favourites' recipe.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Add to Favourites</button>
+                </form>
+                {% endif %}
+
                 <p class="post-subtitle"> {{ recipe.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
