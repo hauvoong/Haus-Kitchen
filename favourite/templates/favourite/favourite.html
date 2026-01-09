@@ -1,39 +1,72 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
 {% block content %}
-{% load static %}
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-4 text-center">
-      <img src="{% static 'assets/images/nobody.jpg' %}" width="75%" />
-    </div>
-    <div class="col-8">
-      <!-- Title goes between these h2 tags -->
-      <h2>{{ favourite.recipe.title }}</h2>
-      <!-- Content goes directly underneath this -->
-      {{ favourite.recipe.content | safe }}
-    </div>
 
-    <div class="container mt-5">
-  <h2>My Favourite Recipes</h2>
-  <ul>
-    {% for fav in favourites %}
-      <li>
-        <a href="{% url 'recipe_detail' fav.recipe.slug %}">{{ fav.recipe.title }}</a>
-      </li>
-    {% empty %}
-      <li>You have no favourite recipes yet.</li>
-    {% endfor %}
-  </ul>
+<!-- favourites.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3">
+            <h1 class="text-center mb-4">Favourite Recipes</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Favourite Recipes Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for fav in favourites %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="image-container">
+                                <div class="image-flash">
+                                    <p class="author">Rating:  {{ fav.recipe.rating }}</p>
+                                </div>
+                            </div>
+                            <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="post-link">
+                                <h2 class="card-title">{{ fav.recipe.title }}</h2>
+                            </a>
+                            <hr />
+                            
+                            <!-- Remove from Favourites Button -->
+                            <form method="post" action="{% url 'remove_favourite' fav.id %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this recipe from your favourites?');">
+                                    <i class="fas fa-heart-broken"></i> Remove from Favourites
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% empty %}
+                <div class="col-12 text-center">
+                    <div class="alert alert-info" role="alert">
+                        <h4>You have no favourite recipes yet.</h4>
+                        <p><a href="{% url 'home' %}" class="btn btn-primary mt-2">Browse Recipes</a></p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><a href="? page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
 
-
-  </div>
-  <div class="row">
-    <div class="col text-right">
-      <!-- Updated on field goes in here -->
-
-      <p class="text-end"><em>Updated on: {{ favourite.added_at }}</em></p>
-    </div>
-  </div>
-</div>
-{% endblock content %}
+<!-- favourites.html content ends here -->
+{% endblock %}

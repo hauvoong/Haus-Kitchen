@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from favourite.models import Favourite
 from recipes.models import Recipe
 from django.contrib.auth.decorators import login_required
 from .models import Favourite
+from django.contrib import messages
 
 # Create your views here.
 def favourite_recipes(request):
@@ -33,3 +34,12 @@ def add_to_favourites(request, recipe_id):
 def favourites_list(request):
     favourites = Favourite.objects.filter(user=request.user)
     return render(request, 'favourite/favourites.html', {'favourites': favourites})
+
+@login_required
+def remove_favourite(request, fav_id):
+    """Remove a recipe from user's favourites"""
+    favourite = get_object_or_404(Favourite, id=fav_id, user=request.user)
+    recipe_title = favourite.recipe.title
+    favourite.delete()
+    messages.success(request, f'"{recipe_title}" has been removed from your favourites.')
+    return redirect('favourite')
