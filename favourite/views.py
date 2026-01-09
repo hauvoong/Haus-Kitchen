@@ -28,6 +28,8 @@ def add_to_favourites(request, recipe_id):
     if request.method == "POST":
         recipe = get_object_or_404(Recipe, id=recipe_id)
         Favourite.objects.get_or_create(user=request.user, recipe=recipe)
+        messages.success(request, f'"{recipe.title}" has been added to your favourites.')
+
     return redirect(request.META.get('HTTP_REFERER', 'recipes:index'))  # Redirects back to previous page
 
 
