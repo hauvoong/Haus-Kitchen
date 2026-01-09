@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Recipe
+from .forms import CommentForm
+
 
 # Create your views here.
 class RecipeList(generic.ListView):
@@ -28,6 +30,7 @@ def recipe_detail(request, slug):
 
     comments = recipe.comments.all().order_by("-created_at")
     comment_count = recipe.comments.filter(approved=True).count()
+    comment_form = CommentForm()
 
     return render(
         request,
@@ -36,5 +39,6 @@ def recipe_detail(request, slug):
             "recipe": recipe,
             "comments": comments,
             "comment_count": comment_count,
-    },
+            "comment_form": comment_form,
+        },
 )
