@@ -145,6 +145,11 @@ body {
     background: #E84610;
 }
 
+.btn-delete-recipe {
+    color: #fff;
+    background: #E84610;
+}
+
 .btn-like:hover,
 .btn-like:active {
     color: #E84610;

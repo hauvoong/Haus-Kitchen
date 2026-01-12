@@ -113,7 +113,45 @@ def add_recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('index.html')  # Change to your recipe list view name
+            return redirect('home')  # Change to your recipe list view name
     else:
         form = RecipeForm()
     return render(request, 'recipes/add_recipe.html', {'form': form})
+
+
+def recipe_delete(request, slug):
+    """
+    View to delete a recipe
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+    
+    # Only allow the superuser to delete
+    if request.user.is_superuser:
+        recipe.delete()
+        messages.success(request, 'Recipe deleted successfully!')
+    else:
+        messages.error(request, 'You do not have permission to delete this recipe!')
+    
+    return redirect('home')
+
+
+def recipe_edit(request, slug):
+    """
+    View to edit a recipe
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+
+    # Only allow the superuser to edit
+    if not request.user.is_superuser:
+        raise PermissionDenied
+
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Recipe updated successfully!')
+            return redirect('recipe_detail', slug=recipe.slug)
+    else:
+        form = RecipeForm(instance=recipe)
+
+    return render(request, 'recipes/recipe_detail.html', {'form': form, 'recipe': recipe})

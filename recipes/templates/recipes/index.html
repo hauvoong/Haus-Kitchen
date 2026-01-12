@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 <!-- index.html content starts here -->
@@ -25,14 +25,17 @@
                     </a>
                     <hr />
                     <p class="card-text text-muted h6">{{ recipes.created_at }}</p>
-                    
-                    {% if user.is_authenticated %}
-                    <form method="post" action="{% url 'add_to_favourites' recipes.id %}">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-primary btn-sm mt-2">Add to Favourites</button>
-                        
-                    </form>
+
+                    <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
+                    {% if user.is_authenticated and not user.is_superuser %}
+                        <form method="post" action="{% url 'add_to_favourites' recipes.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-delete btn-sm mt-2">Add to Favourites</button>
+                        </form>
                     {% endif %}
+                    
+                
+                    
                 </div>
             </div>
         </div>
@@ -61,5 +64,14 @@
     {% endif %}
 </div>
 
+
+
+<!-- Edit recipe Modal -->
+ 
+
 <!-- index.html content ends here -->
+
 {% endblock %}
+
+
+

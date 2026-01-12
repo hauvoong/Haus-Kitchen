@@ -45,17 +45,11 @@
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a
-                            class="nav-link
-                            {% if request.path == favourite_url %}active{%endif%}"
-                            aria-current="page"
-                            href="{% url 'favourite' %}"
-                            >❤️</a>
-                    </li>
+                   
                     <li class="nav-item">
                         {% if user.is_superuser %}
-                        <a href="{% url 'add_recipe' %}" class="btn btn-success">Add Recipe</a>
+
+                        <a class="nav-link" href="{% url 'add_recipe' %}">Add Recipe</a>
                         {% endif %}
                     </li>
 
@@ -72,6 +66,15 @@
                         <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
+
+                     <li class="nav-item">
+                        <a
+                            class="nav-link
+                            {% if request.path == favourite_url %}active{%endif%}"
+                            aria-current="page"
+                            href="{% url 'favourite' %}"
+                            >❤️</a>
+                    </li>
 
                 </ul>
                 <span class="navbar-text text-muted">
