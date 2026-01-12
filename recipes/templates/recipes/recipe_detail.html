@@ -110,6 +110,8 @@
             This comment is awaiting approval
           </p>
           {% endif %}
+          
+            <!-- Edit button for comments -->
           {% if user.is_authenticated and comment.author == user %}
             <button class="btn btn-edit"
                 comment_id="{{ comment.id }}">Edit</button>
