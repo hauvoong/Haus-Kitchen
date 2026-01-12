@@ -87,6 +87,24 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = Recipe.objects.all()
+    recipe = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+
+
+
 @login_required
 def add_recipe(request):
     if not request.user.is_superuser:
