@@ -1,8 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Recipe
 from .forms import CommentForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
+from .forms import RecipeForm
+
 
 
 
@@ -57,3 +61,17 @@ def recipe_detail(request, slug):
             "comment_form": comment_form,
         },
 )
+
+
+@login_required
+def add_recipe(request):
+    if not request.user.is_superuser:
+        raise PermissionDenied
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index.html')  # Change to your recipe list view name
+    else:
+        form = RecipeForm()
+    return render(request, 'recipes/add_recipe.html', {'form': form})

@@ -45,17 +45,31 @@
       <div class="card-body">
         {% if user.is_authenticated %}
         <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="commentForm" method="post"
-          style="margin-top: 1.3em;">
-          {{ comment_form | crispy }}
-          {% csrf_token %}
-          <button id="submitButton" type="submit"
+        
+
+        <!-- Rating is a list of all the ratings for the viewed event -->
+        <form id="commentForm" method="post" style="margin-top: 1.3em;">
+        <div class="mb-3">
+            <label class="form-label">Rate this recipe:</label>
+            <div id="star-rating" style="font-size: 2rem; color: #ccc; cursor: pointer;">
+            <span data-value="1">&#9733;</span>
+            <span data-value="2">&#9733;</span>
+            <span data-value="3">&#9733;</span>
+            <span data-value="4">&#9733;</span>
+            <span data-value="5">&#9733;</span>
+            </div>
+            <input type="hidden" name="rating" id="rating-value" value="0">
+        </div>
+        {{ comment_form | crispy }}
+        {% csrf_token %}
+        <button id="submitButton" type="submit"
             class="btn btn-signup btn-lg">Submit</button>
         </form>
         {% else %}
         <p>Log in to leave a comment</p>
         {% endif %}
+
+
       </div>
     </div>
 
