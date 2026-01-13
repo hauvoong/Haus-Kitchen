@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <div class="image-container">
                                 <div class="image-flash">
-                                    <p class="author">Rating:  {{ fav.recipe.rating }}</p>
+                                    <p class="rating">Rating:  {{ fav.recipe.rating }}</p>
                                 </div>
                             </div>
                             <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="post-link">

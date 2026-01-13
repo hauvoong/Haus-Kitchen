@@ -35,7 +35,7 @@
                     {% if user.is_authenticated and not user.is_superuser %}
                         <form method="post" action="{% url 'add_to_favourites' recipes.id %}">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-delete btn-sm mt-2">Add to Favourites</button>
+                            <button type="submit" class="btn btn-favourite btn-sm mt-2">Add to Favourites</button>
                         </form>
                     {% endif %}
                     

@@ -162,6 +162,11 @@ body {
     background: #E84610;
 }
 
+.btn-favourite {
+    color: #fff;
+    background: #E84610;
+}
+
 .btn-like:hover,
 .btn-like:active {
     color: #E84610;
