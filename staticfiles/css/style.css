@@ -34,8 +34,18 @@ body {
     background-color: transparent;
 }
 
+.card-img-top {
+    width: 100%;
+    height:  500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 30px;
+    margin-bottom: 80px;
+}
+
 .image-container {
     position: relative;
+  
 }
 
 .image-flash {
@@ -44,6 +54,7 @@ body {
     min-width: 30%;
     left: -2px;
     background-color: #188181;
+    border-radius: 5px;
 }
 
 .scale {
@@ -51,10 +62,11 @@ body {
     height: auto;
 }
 
-.author {
+.rating {
     color: white;
     margin: 4px;
     text-transform: uppercase;
+    margin-left: 10px;
 }
 
 .masthead {
@@ -146,6 +158,11 @@ body {
 }
 
 .btn-delete-recipe {
+    color: #fff;
+    background: #E84610;
+}
+
+.btn-favourite {
     color: #fff;
     background: #E84610;
 }
