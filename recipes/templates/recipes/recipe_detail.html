@@ -8,7 +8,7 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <!-- Recipe title goes in these h1 tags -->
-                <h1 class="post-title">{{ recipe.title }}</h1>
+                <h1 class="recipe-title">{{ recipe.title }}</h1>
 
                 
                 
@@ -31,7 +31,7 @@
                         Delete
                       </button>
                       <br>
-                      <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit">Edit</a>
+                      <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit-recipe">Edit</a>
                       
                     {% endif %}
 
@@ -57,7 +57,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-edit">Save</button>
     </form>
     <hr>
 </div>
@@ -99,7 +99,7 @@
         {{ comment_form | crispy }}
         {% csrf_token %}
         <button id="submitButton" type="submit"
-            class="btn btn-signup btn-lg">Submit</button>
+            class="btn btn-comment btn-lg">Submit</button>
         </form>
         {% else %}
         <p>Log in to leave a comment</p>
