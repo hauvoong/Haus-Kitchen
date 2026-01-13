@@ -9,6 +9,8 @@
             <div class="col-md-6 masthead-text">
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="post-title">{{ recipe.title }}</h1>
+
+                
                 
                 <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
                 {% if user.is_authenticated and not user.is_superuser %}
@@ -21,20 +23,29 @@
                 <!-- Delete/edit recipe button -->
                     
                     {% if user.is_superuser %}
-                        <button type="button" 
-                                class="btn btn-delete-recipe" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#deleteRecipeModal"
-                                data-recipe-url="{% url 'recipe_delete' recipe.slug %}">
-                            Delete
-                        </button>
-                        <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit">Edit</a>
+                      <button type="button" 
+                          class="btn btn-delete-recipe" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#deleteRecipeModal"
+                          data-recipe-url="{% url 'recipe_delete' recipe.slug %}">
+                        Delete
+                      </button>
+                      <br>
+                      <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit">Edit</a>
+                      
                     {% endif %}
 
                 <p class="post-subtitle"> {{ recipe.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'assets/images/default2.jpg' %}" class="scale" alt="placeholder">
+
+              {% if "placeholder" in recipe.image.url %}
+                            <img class="card-img-top" src="{% static 'assets/images/food2.jpg' %}"
+                            alt="placeholder image">
+                            {% else %}
+                            <img class="card-img-top" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+                            {% endif %}
+                
             </div>
         </div>
     </div>

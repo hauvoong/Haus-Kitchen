@@ -15,8 +15,13 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="image-container">
+                            {% if "placeholder" in recipes.image.url %}
+                                <img class="card-img-top" src="{% static 'assets/images/lime1.jpg' %}" alt="placeholder image">
+                            {% else %}
+                                <img class="card-img-top" src="{{ recipes.image.url }}" alt="{{ recipes.title }}">
+                            {% endif %}
                         <div class="image-flash">
-                            <p class="author">Rating: {{ recipes.rating }}</p>
+                            <p class="rating">Rating: {{ recipes.rating }}</p>
                         </div>
                     </div>
                     <a href="{% url 'recipe_detail' recipes.slug %}" class="post-link">
@@ -63,11 +68,6 @@
     </nav>
     {% endif %}
 </div>
-
-
-
-<!-- Edit recipe Modal -->
- 
 
 <!-- index.html content ends here -->
 

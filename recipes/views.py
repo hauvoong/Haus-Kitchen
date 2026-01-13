@@ -8,14 +8,12 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from .forms import RecipeForm
 
-
-
-
 # Create your views here.
+
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.all()
     template_name = "recipes/index.html"
-    paginate_by = 4
+    paginate_by = 3
 
 
 def recipe_detail(request, slug):

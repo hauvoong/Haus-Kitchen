@@ -77,6 +77,10 @@ Describe any AI/ML features, models, or APIs used in the project.
 ## User Stories
 https://github.com/users/hauvoong/projects/9
 
+## Bugs
+- Integrating Summernote SummernoteTextField() into my recipe model and having incompatibility issues with Bleach. 
+Solution: Downgrade Bleach to bleach==4.1.0
+
 ## Credits
 - List contributors, libraries, or resources to credit.
 
