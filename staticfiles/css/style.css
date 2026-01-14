@@ -41,7 +41,6 @@ body {
 
 .image-container {
     position: relative;
-  
 }
 
 .image-flash {
@@ -108,9 +107,20 @@ body {
     color: #445261;
 }
 
-.recipe-link:hover,
-.page-link {
+.recipe-link:hover {
     color: #E84610;
+}
+
+
+.page-link {
+    color: #ffffff;
+    background-color: #cf5e5e;
+    border-radius: 5px;
+}
+
+.page-link:hover {
+    color: #E84610;
+    background-color: #ffffff;
 }
 
 .recipe-title {

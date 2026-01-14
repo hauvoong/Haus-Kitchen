@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Favourite
 from django.contrib import messages
 
+
+
 # Create your views here.
 def favourite_recipes(request):
     """
@@ -35,6 +37,7 @@ def add_to_favourites(request, recipe_id):
 
 def favourites_list(request):
     favourites = Favourite.objects.filter(user=request.user)
+    
     return render(request, 'favourite/favourites.html', {'favourites': favourites})
 
 @login_required

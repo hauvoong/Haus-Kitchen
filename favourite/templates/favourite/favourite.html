@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 <!-- favourites.html content starts here -->
@@ -19,13 +19,23 @@
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
+                                <div class="image-container">
+                            {% if "placeholder" in fav.recipe.image.url %}
+                                <img class="card-img-top" src="{% static 'assets/images/lime1.jpg' %}" alt="placeholder image">
+                            {% else %}
+                                <img class="card-img-top" src="{{ fav.recipe.image.url }}" alt="{{ fav.recipe.title }}">
+                            {% endif %}
+                            </div>
                                 <div class="image-flash">
                                     <p class="rating">Rating:  {{ fav.recipe.rating }}</p>
                                 </div>
                             </div>
+                            
                             <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="recipe-link">
                                 <h2 class="card-title">{{ fav.recipe.title }}</h2>
+                                <p>{{ fav.recipe.excerpt }}</p>
                             </a>
+                            
                             <hr />
                             
                             <!-- Remove from Favourites Button -->

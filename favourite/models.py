@@ -7,6 +7,7 @@ class Favourite(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='favourited_by')
     notes = models.TextField(blank=True, null=True)
     added_at = models.DateTimeField(auto_now_add=True)
+    paginate_by = 3
 
     class Meta:
         unique_together = ('user', 'recipe')
