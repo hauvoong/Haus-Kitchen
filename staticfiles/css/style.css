@@ -48,8 +48,6 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #cf5e5e;
-    border-radius: 5px;
 }
 
 .scale {
@@ -191,6 +189,13 @@ body {
 .btn-favourite {
     color: #fff;
     background: #ff0000;
+    border-radius: 5px;
+}
+
+.btn-remove {
+    color: #fff;
+    background: #ff0000;
+    border-radius: 5px;
 }
 
 .btn-like:hover,
