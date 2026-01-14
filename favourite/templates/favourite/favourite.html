@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3">
-            <h1 class="text-center mb-4">Favourite Recipes</h1>
+            <h1 class="fave text-center mb-4">Favourite Recipes</h1>
         </div>
     </div>
     
@@ -23,7 +23,7 @@
                                     <p class="rating">Rating:  {{ fav.recipe.rating }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="post-link">
+                            <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="recipe-link">
                                 <h2 class="card-title">{{ fav.recipe.title }}</h2>
                             </a>
                             <hr />
@@ -32,7 +32,7 @@
                             <form method="post" action="{% url 'remove_favourite' fav.id %}" class="d-inline">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to remove this recipe from your favourites?');">
-                                    <i class="fas fa-heart-broken"></i> Remove from Favourites
+                                    <i class="fas fa-heart-broken"></i> Remove
                                 </button>
                             </form>
                         </div>

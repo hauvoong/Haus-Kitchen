@@ -12,13 +12,7 @@
 
                 
                 
-                <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
-                {% if user.is_authenticated and not user.is_superuser %}
-                <form method="post" action="{% url 'add_to_favourites' recipe.id %}">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-favourite btn-sm mt-2">Add to Favourites</button>
-                </form>
-                {% endif %}
+                
 
                 <!-- Delete/edit recipe button -->
                     
@@ -35,7 +29,7 @@
                       
                     {% endif %}
 
-                <p class="post-subtitle"> {{ recipe.created_on }}</p>
+                
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
 
@@ -65,9 +59,17 @@
 
 <div class="container">
     <div class="row">
+      <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
+                {% if user.is_authenticated and not user.is_superuser %}
+                <form method="post" action="{% url 'add_to_favourites' recipe.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-favourite btn-sm mt-2">Add to Favourites</button>
+                </form>
+                {% endif %}
+                
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-                <!-- The post content goes inside the card-text. -->
+                <!-- The recipe content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
                     {{ recipe.content | safe }}

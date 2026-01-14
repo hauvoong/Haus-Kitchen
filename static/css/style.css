@@ -9,10 +9,6 @@ body {
     color: #4A4A4F;
 }
 
-.red-o {
-    color: #E84610;
-}
-
 .thin {
     font-weight: 300;
 }
@@ -103,12 +99,16 @@ body {
     z-index: 100;
 }
 
-.post-link {
+.fave {
+    color: #445261;
+}
+
+.recipe-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.recipe-link:hover,
 .page-link {
     color: #E84610;
 }
@@ -124,6 +124,13 @@ body {
     color: lightgray;
 }
 
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #f6a6a6;
+    color: #000000;
+}
+
+.btn-signup,
 .btn-edit {
     background-color: #cf5e5e;
     color: #fff;
@@ -173,7 +180,7 @@ body {
 
 .btn-favourite {
     color: #fff;
-    background: #E84610;
+    background: #ff0000;
 }
 
 .btn-like:hover,
