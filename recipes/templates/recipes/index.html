@@ -21,8 +21,8 @@
                                 <img class="card-img-top" src="{{ recipes.image.url }}" alt="{{ recipes.title }}">
                             {% endif %}
                         <div class="image-flash">
-                            <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
-                    {% if user.is_authenticated and not user.is_superuser %}
+                            <!-- Add to favourites button (Only visible to logged-in users) -->
+                    {% if user.is_authenticated %}
                         <form method="post" action="{% url 'add_to_favourites' recipes.id %}">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-favourite btn-sm mt-2">Add to Favourites</button>
