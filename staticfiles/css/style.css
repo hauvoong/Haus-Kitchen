@@ -165,6 +165,18 @@ body {
     margin-top: 20px;
 }
 
+.btn-browse {
+    background-color: #595757;
+    color: #fff;
+}
+
+.alert {
+    background-color: #c48484;
+    color: #fff;
+}
+
+
+
 .link {
     color: #23BBBB;
     text-decoration: none;

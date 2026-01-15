@@ -54,9 +54,9 @@
                 {% endif %}
                 {% empty %}
                 <div class="col-12 text-center">
-                    <div class="alert alert-info" role="alert">
+                    <div class="alert" role="alert">
                         <h4>You have no favourite recipes yet.</h4>
-                        <p><a href="{% url 'home' %}" class="btn btn-primary mt-2">Browse Recipes</a></p>
+                        <p><a href="{% url 'home' %}" class="btn btn-browse mt-2">Browse Recipes</a></p>
                     </div>
                 </div>
                 {% endfor %}
