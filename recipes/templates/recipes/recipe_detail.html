@@ -9,21 +9,6 @@
             <div class="col-md-6 masthead-text">
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
-
-                <!-- Delete/edit recipe button -->
-                    
-                    {% if user.is_superuser %}
-                      <button type="button" 
-                          class="btn btn-delete-recipe" 
-                          data-bs-toggle="modal" 
-                          data-bs-target="#deleteRecipeModal"
-                          data-recipe-url="{% url 'recipe_delete' recipe.slug %}">
-                        Delete
-                      </button>
-                      <br>
-                      <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit-recipe">Edit</a>
-                      
-                    {% endif %}
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
 
@@ -53,16 +38,32 @@
 
 <div class="container">
     <div class="row">
-      <!-- Add to favourites button (Only visible to logged-in users) -->
+      
+   
+        <div class="col card mb-4  mt-3 left  top">
+            <div class="card-body">
+
+              <!-- Add to favourites button (Only visible to logged-in users) -->
                 {% if user.is_authenticated %}
                 <form method="post" action="{% url 'add_to_favourites' recipe.id %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-favourite btn-sm mt-4">Add to Favourites</button>
+                <button type="submit" class="btn btn-favourite btn-sm">Add to Favourites</button>
                 </form>
                 {% endif %}
                 
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
+              <!-- Delete/edit recipe button -->
+                    {% if user.is_superuser %}
+                      <button type="button" 
+                          class="btn btn-delete-recipe" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#deleteRecipeModal"
+                          data-recipe-url="{% url 'recipe_delete' recipe.slug %}">
+                        Delete
+                      </button>
+                      <br>
+                      <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit-recipe">Edit</a>
+                    {% endif %}
+                    
                 <!-- The recipe content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text">
