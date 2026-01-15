@@ -96,7 +96,18 @@ body {
 }
 
 .fave {
-    color: #445261;
+    color: #d30000;
+    margin-top: 20px;
+}
+
+.latest {
+    color: #d30000;
+    margin-top: 20px;
+}
+
+.add-recipe {
+    color: #d30000;
+    margin-top: 20px;
 }
 
 .recipe-link {
