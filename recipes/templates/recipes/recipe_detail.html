@@ -10,10 +10,6 @@
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
 
-                
-                
-                
-
                 <!-- Delete/edit recipe button -->
                     
                     {% if user.is_superuser %}
@@ -28,8 +24,6 @@
                       <a href="{% url 'recipe_edit' recipe.slug %}" class="btn btn-edit-recipe">Edit</a>
                       
                     {% endif %}
-
-                
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
 
@@ -59,11 +53,11 @@
 
 <div class="container">
     <div class="row">
-      <!-- Add to favourites button (Only visible to logged-in users, but not superuser) -->
-                {% if user.is_authenticated and not user.is_superuser %}
+      <!-- Add to favourites button (Only visible to logged-in users) -->
+                {% if user.is_authenticated %}
                 <form method="post" action="{% url 'add_to_favourites' recipe.id %}">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-favourite btn-sm mt-2">Add to Favourites</button>
+                <button type="submit" class="btn btn-favourite btn-sm mt-4">Add to Favourites</button>
                 </form>
                 {% endif %}
                 
