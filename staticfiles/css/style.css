@@ -122,13 +122,13 @@ body {
 
 .page-link {
     color: #ffffff;
-    background-color: #cf5e5e;
+    background-color: #505050;
     border-radius: 5px;
 }
 
 .page-link:hover {
-    color: #E84610;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #cf5e5e; 
 }
 
 .recipe-title {
