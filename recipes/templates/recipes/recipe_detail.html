@@ -1,29 +1,25 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
-
-
-<div class="masthead">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+<!-- recipe detail content starts here -->
+<div class="container">
+        <div class="col-md-12 masthead-text">  
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+        </div>
+</div>
 
-              {% if "placeholder" in recipe.image.url %}
+<div class="container">
+      <!-- Recipe image -->
+       {% if "placeholder" in recipe.image.url %}
                             <img class="card-img-top" src="{% static 'assets/images/food2.jpg' %}"
                             alt="placeholder image">
                             {% else %}
                             <img class="card-img-top" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
                             {% endif %}
-                
-            </div>
-        </div>
-    </div>
 </div>
-
+    
+<!-- Edit recipe form (only visible to superusers) -->
 {% if form %}
 <div class="container mb-4">
     <h2>Edit Recipe</h2>
@@ -36,6 +32,7 @@
 </div>
 {% endif %}
 
+<!-- Add to favourites section -->
 <div class="container">
     <div class="row">
       

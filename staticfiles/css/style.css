@@ -35,7 +35,6 @@ body {
     height:  400px;
     object-fit: cover;
     object-position: center;
-    margin-bottom: 80px;
 }
 
 .image-container {
@@ -61,38 +60,10 @@ body {
     margin-left: 10px;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
 .masthead-text {
     background-color: #cf5e5e;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #cf5e5e;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+    color: white;   
+    margin-bottom: 40px;
 }
 
 .fave {
