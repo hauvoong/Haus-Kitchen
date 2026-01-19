@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from .forms import RecipeForm
+from favourite.models import Favourite
 
 # Create your views here.
 
@@ -15,6 +16,20 @@ class RecipeList(generic.ListView):
     template_name = "recipes/index.html"
     paginate_by = 6
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            # Get all favourites for this user
+            favourite_qs = Favourite.objects.filter(user=self.request.user)
+            # Build a mapping: recipe_id -> favourite_id
+            favourite_map = {f.recipe_id: f.id for f in favourite_qs}
+            # Attach favourite_id to each recipe object
+            for recipe in context['recipe_list']:
+                recipe.favourite_id = favourite_map.get(recipe.id)
+        else:
+            for recipe in context['recipe_list']:
+                recipe.favourite_id = None
+        return context
 
 def recipe_detail(request, slug):
     """
@@ -50,6 +65,12 @@ def recipe_detail(request, slug):
 
     comment_form = CommentForm()
 
+    if request.user.is_authenticated:
+        fav = Favourite.objects.filter(user=request.user, recipe=recipe).first()
+        recipe.favourite_id = fav.id if fav else None
+    else:
+        recipe.favourite_id = None
+
     return render(
         request,
         "recipes/recipe_detail.html",
@@ -58,6 +79,7 @@ def recipe_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            "recipe": recipe,
         },
 )
 

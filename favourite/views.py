@@ -47,4 +47,4 @@ def remove_favourite(request, fav_id):
     recipe_title = favourite.recipe.title
     favourite.delete()
     messages.success(request, f'"{recipe_title}" has been removed from your favourites.')
-    return redirect('favourite')
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
