@@ -115,8 +115,6 @@ def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
-    queryset = Recipe.objects.all()
-    recipe = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
@@ -179,4 +177,5 @@ def recipe_edit(request, slug):
     else:
         form = RecipeForm(instance=recipe)
 
-    return render(request, 'recipes/recipe_detail.html', {'form': form, 'recipe': recipe})
+    return render(request, 'recipes/recipe_detail.html',
+                  {'form': form, 'recipe': recipe})

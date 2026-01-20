@@ -21,10 +21,12 @@ class Migration(migrations.Migration):
                 ('content', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('approved', models.BooleanField(default=False)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='commenter', to=settings.AUTH_USER_MODEL)),
-                ('recipe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='comments', to='recipes.recipe')),
+                ('author', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='commenter', to=settings.AUTH_USER_MODEL)),
+                ('recipe', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='comments', to='recipes.recipe')),
             ],
         ),
     ]

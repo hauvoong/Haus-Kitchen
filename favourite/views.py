@@ -2,19 +2,22 @@ from django.shortcuts import render, redirect, get_object_or_404
 from favourite.models import Favourite
 from recipes.models import Recipe
 from django.contrib.auth.decorators import login_required
-from .models import Favourite
 from django.contrib import messages
 
 
 # Create your views here.
 def favourite_recipes(request):
     """
-    Renders the user's favourite recipes page but must be logged in. 
+    Renders the user's favourite recipes page but must be logged in.
     It uses if not to check user authentication.
     Filter retrieves all favourited recipes by user in one query.
     """
     if not request.user.is_authenticated:
-        return render(request, "registration/login.html", {"error": "You must be logged in to add recipes to your favourites."})
+        return render(
+            request, "registration/login.html",
+            {"error":
+             "You must be logged into add recipes to your favourites."}
+        )
     user = request.user
     favourites = Favourite.objects.filter(user=user).select_related('recipe')
 
@@ -40,7 +43,8 @@ def add_to_favourites(request, recipe_id):
 def favourites_list(request):
     favourites = Favourite.objects.filter(user=request.user)
 
-    return render(request, 'favourite/favourites.html', {'favourites': favourites})
+    return render(request, 'favourite/favourites.html',
+                  {'favourites': favourites})
 
 
 @login_required

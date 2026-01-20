@@ -9,22 +9,54 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('recipes', '0005_alter_comment_options_alter_recipe_options_favourite'),
+        (
+            'recipes',
+            '0005_alter_comment_options_alter_recipe_options_favourite',
+        ),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Rating',
             fields=[
-                ('id', models.BigAutoField(auto_created=True,
-                 primary_key=True, serialize=False, verbose_name='ID')),
-                ('score', models.PositiveSmallIntegerField(choices=[
-                 (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')])),
+                (
+                    'id',
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID'
+                    )
+                ),
+                (
+                    'score',
+                    models.PositiveSmallIntegerField(
+                        choices=[
+                            (1, '1'),
+                            (2, '2'),
+                            (3, '3'),
+                            (4, '4'),
+                            (5, '5'),
+                        ]
+                    ),
+                ),
                 ('rated_at', models.DateTimeField(auto_now=True)),
-                ('recipe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='ratings', to='recipes.recipe')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='ratings', to=settings.AUTH_USER_MODEL)),
+                (
+                    'recipe',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='ratings',
+                        to='recipes.recipe'
+                    )
+                ),
+                (
+                    'user',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='ratings',
+                        to=settings.AUTH_USER_MODEL
+                    )
+                ),
             ],
             options={
                 'unique_together': {('user', 'recipe')},

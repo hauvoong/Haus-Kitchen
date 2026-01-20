@@ -27,10 +27,19 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True,
                  primary_key=True, serialize=False, verbose_name='ID')),
                 ('added_at', models.DateTimeField(auto_now_add=True)),
-                ('recipe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='favourited_by', to='recipes.recipe')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                 related_name='favourites', to=settings.AUTH_USER_MODEL)),
+                (
+                    'recipe',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name='favourited_by',
+                        to='recipes.recipe'
+                    )
+                ),
+                ('user', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE,
+                    related_name='favourites',
+                    to=settings.AUTH_USER_MODEL
+                )),
             ],
             options={
                 'unique_together': {('user', 'recipe')},
