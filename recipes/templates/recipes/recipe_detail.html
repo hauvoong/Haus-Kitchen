@@ -46,8 +46,11 @@
                       <!-- Show Remove button -->
                       <form method="post" action="{% url 'remove_favourite' recipe.favourite_id %}">
                           {% csrf_token %}
-                          <button type="submit" class="btn btn-remove btn-sm"
-                              onclick="return confirm('Are you sure you want to remove this recipe from your favourites?');">
+                          <button type="button"
+                                  class="btn btn-remove"
+                                  data-bs-toggle="modal"
+                                  data-bs-target="#removeFavouriteModal"
+                                  data-remove-url="{% url 'remove_favourite' recipe.favourite_id %}">
                               <i class="fas fa-heart-broken"></i> Remove
                           </button>
                       </form>
@@ -205,11 +208,35 @@
     </div>
 </div>
 
+<!-- Remove Favourite Confirmation Modal -->
+<div class="modal fade" id="removeFavouriteModal" tabindex="-1" aria-labelledby="removeFavouriteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="removeFavouriteModalLabel">Remove from Favourites?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to remove this recipe from your favourites?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <form id="removeFavouriteForm" method="post" action="">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Remove</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock content %}
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
 
 <script src="{% static 'js/delete_edit_recipe.js' %}"></script>
+
+<script src="{% static 'js/remove_favourite.js' %}"></script>
 
 {% endblock %}
