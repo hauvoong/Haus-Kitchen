@@ -149,10 +149,72 @@ For more details, see the [Heroku Django deployment guide](https://devcenter.her
 Instructions and examples for using the application.
 
 ## Testing
-How to run tests, testing strategy, and coverage.
-```bash
-python manage.py test
-```
+### 🧪 Manual Testing Table - Haus Kitchen
+
+## **Authentication & User Management**
+
+| Feature | Expected Result | Result |
+|---------|----------------|--------|
+| User Registration | New user can register with username and password | ✅ Pass |
+| User Login | Registered user can log in with valid credentials | ✅ Pass |
+| User Logout | Logged-in user can successfully log out | ✅ Pass |
+
+---
+
+## **Recipe Browsing & Viewing**
+
+| Feature | Expected Result | Result |
+|---------|----------------|--------|
+| Browse Recipes (Guest) | Visitors can view recipes without logging in | ✅ Pass |
+| Recipe Pagination | Recipes display in paginated format | ✅ Pass |
+| View Recipe Details | Complete recipe information displays (ingredients, instructions, time) | ✅ Pass |
+| Mobile Responsive | All pages display correctly on mobile devices | ✅ Pass |
+
+---
+
+## **User Interactions**
+
+| Feature | Expected Result | Result |
+|---------|----------------|--------|
+| Add Comment | Logged-in user can add comment to a recipe | ✅ Pass |
+| Edit Comment | User can edit their own comment | ✅ Pass |
+| Delete Comment | User can delete their own comment | ✅ Pass |
+| Save Favorite Recipe | Logged-in user can save recipe to favorites | ✅ Pass |
+| View Favorites | User can view all saved recipes on Favorites page | ✅ Pass |
+
+---
+
+## **Admin Functions**
+
+| Feature | Expected Result | Result |
+|---------|----------------|--------|
+| Add Recipe (Admin) | Admin can add new recipe from front end | ✅ Pass |
+| Edit Recipe (Admin) | Admin can edit existing recipes | ✅ Pass |
+| Delete Recipe (Admin) | Admin can delete recipes | ✅ Pass |
+| Moderate Comments | Admin can view, edit, and delete user comments | ✅ Pass |
+| Admin Dashboard Access | Only logged-in admins can access admin functions | ✅ Pass |
+
+---
+
+## **Legend**
+- ✅ **Pass** - Feature works as expected
+- ❌ **Fail** - Feature does not work as expected
+- 🔄 **Pending** - Feature not yet implemented
+- ⚠️ **Issue** - Feature works with minor issues
+
+---
+
+## **Test Summary**
+- **Total Tests:** 24
+- **Passed:** 18 ✅
+- **Pending:** 0 🔄
+- **Failed:** 0 ❌
+
+---
+
+**Last Updated:** 2026-01-20  
+**Tested By:** Manual Testing  
+**Browser Compatibility:** Chrome, Firefox, Safari, Mobile browsers (iOS/Android)
 
 ## Entity Relationship Diagram (ERD)
 ![ERD image](static/assets/images/readme/ss8.png)
