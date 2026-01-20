@@ -4,34 +4,34 @@
 Haus Kitchen is a web application designed to help users discover recipes. The project aims to provide a user-friendly platform for home cooks and food enthusiasts to manage their personal recipe collections and explore new dishes. A responsive site allows for ease of use for a range of users.
 
 ### Desktop
-![Desktop screenshot](static/assets/images/readme/homess.png)
+<img src="static/assets/images/readme/homess.png" alt="Desktop screenshot" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
 ### Tablet
-![Tablet screenshot](static/assets/images/readme/tabss.png)
+<img src="static/assets/images/readme/tabss.png" alt="Tablet screenshot" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
 ### Mobile
-![Mobile screenshot](static/assets/images/readme/mobss.png)
+<img src="static/assets/images/readme/mobss.png" alt="Mobile screenshot" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
 
 ## Features
-- Home page
-![Home](static/assets/images/readme/homess.png)
-- Add Recipe
-![Add recipe](static/assets/images/readme/addss.png)
-- Favourite
-![Favourite](static/assets/images/readme/favess.png)
-- Admin 
-![Admin](static/assets/images/readme/adminss.png)
-- Sign up
-![Signup](static/assets/images/readme/signupss.png)
-- Sign in
-![Signin](static/assets/images/readme/signinss.png)
-- Sign out
-![Signout](static/assets/images/readme/signoutss.png)
-- Footer
-![Footer](static/assets/images/readme/footerss.png)
-- Navbar
-![Nav](static/assets/images/readme/navss.png)
+- Home page  
+    <img src="static/assets/images/readme/homess.png" alt="Home" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Add Recipe  
+    <img src="static/assets/images/readme/addss.png" alt="Add recipe" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Favourite  
+    <img src="static/assets/images/readme/favess.png" alt="Favourite" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Admin  
+    <img src="static/assets/images/readme/adminss.png" alt="Admin" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Sign up  
+    <img src="static/assets/images/readme/signupss.png" alt="Signup" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Sign in  
+    <img src="static/assets/images/readme/signinss.png" alt="Signin" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Sign out  
+    <img src="static/assets/images/readme/signoutss.png" alt="Signout" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Footer  
+    <img src="static/assets/images/readme/footerss.png" alt="Footer" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+- Navbar  
+    <img src="static/assets/images/readme/navss.png" alt="Nav" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## Tech Stack
 - **Backend:** Python, Django
@@ -111,23 +111,23 @@ To deploy Haus Kitchen on Heroku:
 Boostrap was useed to achieve CSS responsiveness and Chrome Dev Tools were used regularly to check responsiveness across all device sizes
 
 ## Lighthouse
-![Lighthouse screenshot](static/assets/images/readme/lhss.png)
+<img src="static/assets/images/readme/lhss.png" alt="Lighthouse screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## HTML Validator
-![HTML screenshot](static/assets/images/readme/htmlvalss.png)
+<img src="static/assets/images/readme/htmlvalss.png" alt="HTML screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## CSS Validator
-![CSS screenshot](static/assets/images/readme/cssval.png)
+<img src="static/assets/images/readme/cssval.png" alt="CSS screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## Accessibility test
-![CAccessibility screenshot](static/assets/images/readme/accessibilityss.png)
+<img src="static/assets/images/readme/accessibilityss.png" alt="CAccessibility screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## AI Unit test
-![Unit test screenshot](static/assets/images/readme/unittest.png)
-![Python test screenshot](static/assets/images/readme/pythontest.png)
+<img src="static/assets/images/readme/unittest.png" alt="Unit test screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/pythontest.png" alt="Python test screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## Entity Relationship Diagram (ERD)
-![ERD image](static/assets/images/readme/ss8.png)
+<img src="static/assets/images/readme/ss8.png" alt="ERD image" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
 ## AI Usage
 Describe any AI/ML features, models, or APIs used in the project.
@@ -135,14 +135,14 @@ Describe any AI/ML features, models, or APIs used in the project.
 ## User Experience Design
 https://github.com/users/hauvoong/projects/9
 
-Wireframes
-![Wireframe screenshot](static/assets/images/readme/ss1.png)
-![Wireframe screenshot](static/assets/images/readme/ss2.png)
-![Wireframe screenshot](static/assets/images/readme/ss3.png)
-![Wireframe screenshot](static/assets/images/readme/ss4.png)
-![Wireframe screenshot](static/assets/images/readme/ss5.png)
-![Wireframe screenshot](static/assets/images/readme/ss6.png)
-![Wireframe screenshot](static/assets/images/readme/ss7.png)
+Wireframes  
+<img src="static/assets/images/readme/ss1.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss2.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss3.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss4.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss5.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss6.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/ss7.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## Bugs
 - Integrating Summernote SummernoteTextField() into my recipe model and having incompatibility issues with Bleach. 
@@ -154,3 +154,7 @@ Solution: Downgrade Bleach to bleach==4.1.0
 ## License
 Specify the license for your project.
 # Haus-Kitchen
+## Code Style
+
+PEP8 compliance is checked using `flake8`.  
+All project files are regularly linted and formatted for readability and maintainability.
