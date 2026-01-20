@@ -211,10 +211,23 @@ Instructions and examples for using the application.
 - **Failed:** 0 ❌
 
 ---
+ 
+## Responsiveness testing
+Boostrap was useed to achieve CSS responsiveness and Chrome Dev Tools were used regularly to check responsiveness across all device sizes
 
-**Last Updated:** 2026-01-20  
-**Tested By:** Manual Testing  
-**Browser Compatibility:** Chrome, Firefox, Safari, Mobile browsers (iOS/Android)
+## Lighthouse
+![Lighthouse screenshot](static/assets/images/readme/lhss.png)
+
+## HTML Validator
+![HTML screenshot](static/assets/images/readme/htmlvalss.png)
+
+## CSS Validator
+![CSS screenshot](static/assets/images/readme/cssval.png)
+
+## AI Unit test
+![Unit test screenshot](static/assets/images/readme/unittest.png)
+![Python test screenshot](static/assets/images/readme/pythontest.png)
+
 
 ## Entity Relationship Diagram (ERD)
 ![ERD image](static/assets/images/readme/ss8.png)

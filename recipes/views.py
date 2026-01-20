@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse  
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
 from .models import Recipe, Comment
 from .forms import CommentForm
@@ -10,6 +10,7 @@ from .forms import RecipeForm
 from favourite.models import Favourite
 
 # Create your views here.
+
 
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.all()
@@ -30,6 +31,7 @@ class RecipeList(generic.ListView):
             for recipe in context['recipe_list']:
                 recipe.favourite_id = None
         return context
+
 
 def recipe_detail(request, slug):
     """
@@ -59,14 +61,15 @@ def recipe_detail(request, slug):
             comment.recipe = recipe
             comment.save()
             messages.add_message(
-        request, messages.SUCCESS,
-        'Comment submitted and awaiting approval'
-    )
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
 
     comment_form = CommentForm()
 
     if request.user.is_authenticated:
-        fav = Favourite.objects.filter(user=request.user, recipe=recipe).first()
+        fav = Favourite.objects.filter(
+            user=request.user, recipe=recipe).first()
         recipe.favourite_id = fav.id if fav else None
     else:
         recipe.favourite_id = None
@@ -81,7 +84,7 @@ def recipe_detail(request, slug):
             "comment_form": comment_form,
             "recipe": recipe,
         },
-)
+    )
 
 
 def comment_edit(request, slug, comment_id):
@@ -102,7 +105,8 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
@@ -119,10 +123,10 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
-
 
 
 @login_required
@@ -144,14 +148,15 @@ def recipe_delete(request, slug):
     View to delete a recipe
     """
     recipe = get_object_or_404(Recipe, slug=slug)
-    
+
     # Only allow the superuser to delete
     if request.user.is_superuser:
         recipe.delete()
         messages.success(request, 'Recipe deleted successfully!')
     else:
-        messages.error(request, 'You do not have permission to delete this recipe!')
-    
+        messages.error(
+            request, 'You do not have permission to delete this recipe!')
+
     return redirect('home')
 
 

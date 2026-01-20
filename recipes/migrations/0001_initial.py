@@ -14,13 +14,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Recipes',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200, unique=True)),
                 ('slug', models.SlugField(max_length=200, unique=True)),
                 ('recipe', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Published')], default=0)),
+                ('status', models.IntegerField(choices=[
+                 (0, 'Draft'), (1, 'Published')], default=0)),
             ],
         ),
     ]

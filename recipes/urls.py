@@ -12,4 +12,4 @@ urlpatterns = [
     path('<slug:slug>/delete_recipe/',
          views.recipe_delete, name='recipe_delete'),
     path('<slug:slug>/edit/', views.recipe_edit, name='recipe_edit'),
-    ]
+]

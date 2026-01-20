@@ -6,7 +6,6 @@ from .models import Favourite
 from django.contrib import messages
 
 
-
 # Create your views here.
 def favourite_recipes(request):
     """
@@ -25,20 +24,24 @@ def favourite_recipes(request):
         {"favourites": favourites},
     )
 
+
 @login_required
 def add_to_favourites(request, recipe_id):
     if request.method == "POST":
         recipe = get_object_or_404(Recipe, id=recipe_id)
         Favourite.objects.get_or_create(user=request.user, recipe=recipe)
-        messages.success(request, f'"{recipe.title}" has been added to your favourites.')
+        messages.success(
+            request, f'"{recipe.title}" has been added to your favourites.')
 
-    return redirect(request.META.get('HTTP_REFERER', 'recipes:index'))  # Redirects back to previous page
+    # Redirects back to previous page
+    return redirect(request.META.get('HTTP_REFERER', 'recipes:index'))
 
 
 def favourites_list(request):
     favourites = Favourite.objects.filter(user=request.user)
-    
+
     return render(request, 'favourite/favourites.html', {'favourites': favourites})
+
 
 @login_required
 def remove_favourite(request, fav_id):
@@ -46,5 +49,6 @@ def remove_favourite(request, fav_id):
     favourite = get_object_or_404(Favourite, id=fav_id, user=request.user)
     recipe_title = favourite.recipe.title
     favourite.delete()
-    messages.success(request, f'"{recipe_title}" has been removed from your favourites.')
+    messages.success(
+        request, f'"{recipe_title}" has been removed from your favourites.')
     return redirect(request.META.get('HTTP_REFERER', 'home'))
