@@ -1,104 +1,132 @@
-
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <!-- index.html content starts here -->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <h1 class="latest text-center mb-4">Latest Recipes</h1>
-        </div>
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1 class="latest text-center mb-4">Latest Recipes</h1>
+    </div>
 
-        <!-- Recipes Entries Column -->
-        <div class="col-12 mt-3 left">
-    <div class="row">
+    <!-- Recipes Entries Column -->
+    <div class="col-12 mt-3 left">
+      <div class="row">
         {% for recipes in recipe_list %}
         <div class="col-md-4">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="image-container">
-                            {% if "placeholder" in recipes.image.url %}
-                                <img class="card-img-top" src="{% static 'assets/images/lime1.jpg' %}" alt="placeholder image">
-                            {% else %}
-                                <img class="card-img-top" src="{{ recipes.image.url }}" alt="{{ recipes.title }}">
-                            {% endif %}
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="image-container">
+                {% if "placeholder" in recipes.image.url %}
+                <img
+                  class="card-img-top"
+                  src="{% static 'assets/images/lime1.jpg' %}"
+                  alt="placeholder image"
+                />
+                {% else %}
+                <img
+                  class="card-img-top"
+                  src="{{ recipes.image.url }}"
+                  alt="{{ recipes.title }}"
+                />
+                {% endif %}
 
-                        <div class="image-flash">
-                            <!-- Add to favourites button (Only visible to logged-in users) -->
-                    
-                            {% if user.is_authenticated %}
-                                {% if recipes.favourite_id %}
-                                    <!-- Show Remove button -->
-                                    <button type="button"
-                                            class="btn btn-remove"
-                                            data-bs-toggle="modal"
-                                            data-bs-target="#removeFavouriteModal"
-                                            data-remove-url="{% url 'remove_favourite' recipes.favourite_id %}">
-                                        <i class="fas fa-heart-broken"></i> Remove
-                                    </button>
-                                {% else %}
-                                    <!-- Show Add to Favourites button -->
-                                    <form method="post" action="{% url 'add_to_favourites' recipes.id %}">
-                                        {% csrf_token %}
-                                        <button type="submit" class="btn btn-favourite">Add to Favourites</button>
-                                    </form>
-                                {% endif %}
-                            {% endif %}
-                        </div>                        
-                    </div>
-                    <a href="{% url 'recipe_detail' recipes.slug %}" class="recipe-link">
-                        <h2 class="card-title">{{ recipes.title }}</h2>
-                        <p>{{ recipes.excerpt }}</p>
-                    </a>
-                    <hr>
-                    <!-- <p class="card-text text-muted h6">{{ recipes.created_at }}</p> --> 
+                <div class="image-flash">
+                  <!-- Add to favourites button (Only visible to logged-in users) -->
 
-                    
-                    
-                
-                    
+                  {% if user.is_authenticated %} {% if recipes.favourite_id %}
+                  <!-- Show Remove button -->
+                  <button
+                    type="button"
+                    class="btn btn-remove"
+                    data-bs-toggle="modal"
+                    data-bs-target="#removeFavouriteModal"
+                    data-remove-url="{% url 'remove_favourite' recipes.favourite_id %}"
+                  >
+                    <i class="fas fa-heart-broken"></i> Remove
+                  </button>
+                  {% else %}
+                  <!-- Show Add to Favourites button -->
+                  <form
+                    method="post"
+                    action="{% url 'add_to_favourites' recipes.id %}"
+                  >
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-favourite">
+                      Add to Favourites
+                    </button>
+                  </form>
+                  {% endif %} {% endif %}
                 </div>
+              </div>
+              <a
+                href="{% url 'recipe_detail' recipes.slug %}"
+                class="recipe-link"
+              >
+                <h2 class="card-title">{{ recipes.title }}</h2>
+                <p>{{ recipes.excerpt }}</p>
+              </a>
+              <hr />
+              <!-- <p class="card-text text-muted h6">{{ recipes.created_at }}</p> -->
             </div>
+          </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
+      </div>
+      <div class="row">{% endif %} {% endfor %}</div>
     </div>
-    <div class="row">
-        {% endif %}
-        {% endfor %}
-    </div>
-</div>
-    </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}"
-                class="page-link">« PREV</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Go to next page"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+  </div>
+  {% if is_paginated %}
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li>
+        <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
+          >« PREV</a
+        >
+      </li>
+      {% endif %} {% if page_obj.has_next %}
+      <li>
+        <a
+          href="?page={{ page_obj.next_page_number }}"
+          class="page-link"
+          aria-label="Go to next page"
+        >
+          NEXT &raquo;</a
+        >
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
 </div>
 
 <!-- Remove Favourite Confirmation Modal -->
-<div class="modal fade" id="removeFavouriteModal" tabindex="-1" aria-labelledby="removeFavouriteModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="removeFavouriteModal"
+  tabindex="-1"
+  aria-labelledby="removeFavouriteModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="removeFavouriteModalLabel">Remove from Favourites?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="removeFavouriteModalLabel">
+          Remove from Favourites?
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         Are you sure you want to remove this recipe from your favourites?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
         <form id="removeFavouriteForm" method="post" action="">
           {% csrf_token %}
           <button type="submit" class="btn btn-danger">Remove</button>
@@ -112,6 +140,3 @@
 <script src="{% static 'js/remove_favourite.js' %}"></script>
 
 {% endblock %}
-
-
-

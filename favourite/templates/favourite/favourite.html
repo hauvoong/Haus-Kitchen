@@ -1,85 +1,111 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
 <!-- favourites.html content starts here -->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 mt-3">
-            <h1 class="fave text-center mb-4">Favourite Recipes</h1>
-        </div>
+  <div class="row">
+    <div class="col-12 mt-3">
+      <h1 class="fave text-center mb-4">Favourite Recipes</h1>
     </div>
-    
-    <div class="row">
-        <!-- Favourite Recipes Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for fav in favourites %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-container">
-                            {% if "placeholder" in fav.recipe.image.url %}
-                                <img class="card-img-top" src="{% static 'assets/images/lime1.jpg' %}" alt="placeholder image">
-                            {% else %}
-                                <img class="card-img-top" src="{{ fav.recipe.image.url }}" alt="{{ fav.recipe.title }}">
-                            {% endif %}
-                            </div>
-                                <div class="image-flash">
-                                    <!-- Remove from Favourites Button -->
-                            <button type="button"
-                                    class="btn btn-remove"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#removeFavouriteModal"
-                                    data-remove-url="{% url 'remove_favourite' fav.id %}">
-                                <i class="fas fa-heart-broken"></i> Remove
-                            </button>
-                            
-                                </div>
-                            </div>
-                            
-                            <a href="{% url 'recipe_detail' fav.recipe.slug %}" class="recipe-link">
-                                <h2 class="card-title">{{ fav.recipe.title }}</h2>
-                                <p>{{ fav.recipe.excerpt }}</p>
-                            </a>
-                            
-                            <hr>
-                            
-                            
-                        </div>
-                    </div>
+  </div>
+
+  <div class="row">
+    <!-- Favourite Recipes Entries Column -->
+    <div class="col-12 mt-3 left">
+      <div class="row">
+        {% for fav in favourites %}
+        <div class="col-md-4">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="image-container">
+                <div class="image-container">
+                  {% if "placeholder" in fav.recipe.image.url %}
+                  <img
+                    class="card-img-top"
+                    src="{% static 'assets/images/lime1.jpg' %}"
+                    alt="placeholder image"
+                  />
+                  {% else %}
+                  <img
+                    class="card-img-top"
+                    src="{{ fav.recipe.image.url }}"
+                    alt="{{ fav.recipe.title }}"
+                  />
+                  {% endif %}
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% empty %}
-                <div class="col-12 text-center">
-                    <div class="alert" role="alert">
-                        <h4>You have no favourite recipes yet.</h4>
-                        <p><a href="{% url 'home' %}" class="btn btn-browse mt-2">Browse Recipes</a></p>
-                    </div>
+                <div class="image-flash">
+                  <!-- Remove from Favourites Button -->
+                  <button
+                    type="button"
+                    class="btn btn-remove"
+                    data-bs-toggle="modal"
+                    data-bs-target="#removeFavouriteModal"
+                    data-remove-url="{% url 'remove_favourite' fav.id %}"
+                  >
+                    <i class="fas fa-heart-broken"></i> Remove
+                  </button>
                 </div>
-                {% endfor %}
+              </div>
+
+              <a
+                href="{% url 'recipe_detail' fav.recipe.slug %}"
+                class="recipe-link"
+              >
+                <h2 class="card-title">{{ fav.recipe.title }}</h2>
+                <p>{{ fav.recipe.excerpt }}</p>
+              </a>
+
+              <hr />
             </div>
+          </div>
         </div>
+        {% if forloop.counter|divisibleby:3 %}
+      </div>
+      <div class="row">
+        {% endif %} {% empty %}
+        <div class="col-12 text-center">
+          <div class="alert" role="alert">
+            <h4>You have no favourite recipes yet.</h4>
+            <p>
+              <a href="{% url 'home' %}" class="btn btn-browse mt-2"
+                >Browse Recipes</a
+              >
+            </p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Remove Favourite Confirmation Modal -->
-<div class="modal fade" id="removeFavouriteModal" tabindex="-1" aria-labelledby="removeFavouriteModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="removeFavouriteModal"
+  tabindex="-1"
+  aria-labelledby="removeFavouriteModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="removeFavouriteModalLabel">Remove from Favourites?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="removeFavouriteModalLabel">
+          Remove from Favourites?
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
         Are you sure you want to remove this recipe from your favourites?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
         <form id="removeFavouriteForm" method="post" action="">
           {% csrf_token %}
           <button type="submit" class="btn btn-danger">Remove</button>
