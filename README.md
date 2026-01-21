@@ -173,6 +173,8 @@ Solution: Update recipe.favourite_id to fav.id
 Solution: Add @login_required to the views. Which redirects to sign in page.
 <img src="static/assets/images/readme/faverror.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
+- There were a variety of minor wiring up views/urls/template bugs which Copilot was very helpful in assisting. 
+
 ## AI Usage
 - Used GitHub Copilot to generate boilerplate code and speed up repetitive coding tasks.
 - Leveraged Copilot to assist with debug issues, such as fixing syntax errors and resolving logic bugs in Django views and models.
