@@ -1,13 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic
-from .models import Recipe, Comment
-from .forms import CommentForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from .forms import RecipeForm
 from favourite.models import Favourite
+from .forms import RecipeForm
+from .models import Recipe, Comment
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -82,7 +82,6 @@ def recipe_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
-            "recipe": recipe,
         },
     )
 
@@ -126,7 +125,7 @@ def comment_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
-
+# Add recipe view
 @login_required
 def add_recipe(request):
     if not request.user.is_superuser:
@@ -135,7 +134,7 @@ def add_recipe(request):
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('home')  # Change to your recipe list view name
+            return redirect('home')  
     else:
         form = RecipeForm()
     return render(request, 'recipes/add_recipe.html', {'form': form})

@@ -146,7 +146,7 @@ Boostrap was useed to achieve CSS responsiveness and Chrome Dev Tools were used 
 
 ## Python testing
 All Python code was tested for PEP8 compatibility with Flake8 via terminal.
-No code issues.
+No issues.
 <img src="static/assets/images/readme/pep8.png" alt="Python test screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 
