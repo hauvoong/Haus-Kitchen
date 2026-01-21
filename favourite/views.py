@@ -6,6 +6,7 @@ from django.contrib import messages
 
 
 # Create your views here.
+@login_required
 def favourite_recipes(request):
     """
     Renders the user's favourite recipes page but must be logged in.

@@ -63,7 +63,6 @@ The site is deployed to Heroku using continuous deployment from the main branch.
     - Click **Deploy Branch** to start deployment.
 6. Once deployment completes, launch the app from the dashboard.
 
-
 ## Testing
 ### 🧪 Manual Testing Table - Haus Kitchen
 
@@ -182,9 +181,16 @@ Wireframes
 - Integrating Summernote SummernoteTextField() into my recipe model and having incompatibility issues with Bleach. 
 Solution: Downgrade Bleach to bleach==4.1.0
 
+- Creating add/remove recipe on the front end: Had multiple errors integrating the function. Managed to integrate and migrate model.
+However there is a remaining issue where the Summernote Content box on the Add Recipe page is not responsive and displays outside of mobile screens. I will address this issue later. 
+
 - Remove favourite Modal issue: NoReverseMatch. 
 Solution: Update recipe.favourite_id to fav.id
 <img src="static/assets/images/readme/removemodal.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+
+- Links that are hidden from non logged in users/non admin users, throws up error page.
+Solution: Add @login_required to the views. Which reidrects to sign in page.
+<img src="static/assets/images/readme/faverror.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## AI Usage
 - Used GitHub Copilot to generate boilerplate code and speed up repetitive coding tasks.
