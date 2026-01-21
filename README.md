@@ -12,7 +12,6 @@ Haus Kitchen is a web application designed to help users discover recipes. The p
 ### Mobile
 <img src="static/assets/images/readme/mobss.png" alt="Mobile screenshot" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
-
 ## Features
 - Home page  
     <img src="static/assets/images/readme/homess.png" alt="Home" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
@@ -108,24 +107,6 @@ The site is deployed to Heroku using continuous deployment from the main branch.
 | Delete Recipe (Admin) | Admin can delete recipes | ✅ Pass |
 | Moderate Comments | Admin can view, edit, and delete user comments | ✅ Pass |
 | Admin Dashboard Access | Only logged-in admins can access admin functions | ✅ Pass |
-
----
-
-## **Legend**
-- ✅ **Pass** - Feature works as expected
-- ❌ **Fail** - Feature does not work as expected
-- 🔄 **Pending** - Feature not yet implemented
-- ⚠️ **Issue** - Feature works with minor issues
-
----
-
-## **Test Summary**
-- **Total Tests:** 18
-- **Passed:** 18 ✅
-- **Pending:** 0 🔄
-- **Failed:** 0 ❌
-
----
  
 ## Responsiveness testing
 Boostrap was useed to achieve CSS responsiveness and Chrome Dev Tools were used regularly to check responsiveness across all device sizes
@@ -189,7 +170,7 @@ Solution: Update recipe.favourite_id to fav.id
 <img src="static/assets/images/readme/removemodal.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 - Links that are hidden from non logged in users/non admin users, throws up error page.
-Solution: Add @login_required to the views. Which reidrects to sign in page.
+Solution: Add @login_required to the views. Which redirects to sign in page.
 <img src="static/assets/images/readme/faverror.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## AI Usage
@@ -215,9 +196,4 @@ User profile management - Users can login and make adjustments to their profile,
 
 Catergories via tags - Recipes will be tagged and catergorised so user can look at a certain type of dish based cuisine, nation etc
 
-
-# Haus-Kitchen
-## Code Style
-
-PEP8 compliance is checked using `flake8`.  
-All project files are regularly linted and formatted for readability and maintainability.
+Seperating the elements of the recipe content. Right now, it is one text box. Eventually it will be broken down to elements such as; ingrediants, instructions, cooking time etc 

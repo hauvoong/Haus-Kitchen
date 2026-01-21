@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // ✅ Get the URL from 'data-recipe-url' NOT 'href'
+            // Get the URL from 'data-recipe-url' NOT 'href'
             const recipeUrl = btn.getAttribute('data-recipe-url');
             
             // Set the URL on the confirm button
