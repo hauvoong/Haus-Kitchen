@@ -188,9 +188,9 @@ Solution: Add @login_required to the views. Which redirects to sign in page.
 - Copilot created and executed python testing 
 
 ## Credits
-- Copilot
 - Code Institute's Codestar walkthrough as the foundation of my site
 - https://github.com/mbriscoe for readme ideas
+- Recipes from https://www.recipetineats.com/
 
 ## Future features
 Ratings - A feature where users can rate recipes. I started to implement but ran out of time, so there may be reference to this feature in the codebase.
