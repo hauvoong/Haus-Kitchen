@@ -22,12 +22,14 @@
                   class="card-img-top"
                   src="{% static 'assets/images/lime1.jpg' %}"
                   alt="placeholder image"
+                  referrerpolicy="no-referrer"
                 />
                 {% else %}
                 <img
                   class="card-img-top"
                   src="{{ recipes.image.url }}"
                   alt="{{ recipes.title }}"
+                  referrerpolicy="no-referrer"
                 />
                 {% endif %}
 
