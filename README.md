@@ -112,7 +112,9 @@ The site is deployed to Heroku using continuous deployment from the main branch.
 Boostrap was useed to achieve CSS responsiveness and Chrome Dev Tools were used regularly to check responsiveness across all device sizes
 
 ## Lighthouse
+I looked into the Best Practice score, Lighthouse test doesn't like the Cloudinary image setup and a suggested fix is to have the files self hosted.
 <img src="static/assets/images/readme/lhss.png" alt="Lighthouse screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
+<img src="static/assets/images/readme/cloudlh.png" alt="Lighthouse screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 
 ## HTML Validator
 <img src="static/assets/images/readme/htmlvalss.png" alt="HTML screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
