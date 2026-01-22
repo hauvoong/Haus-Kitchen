@@ -15,14 +15,12 @@
     class="card-img-top"
     src="{% static 'assets/images/food2.jpg' %}"
     alt="placeholder image"
-    referrerpolicy="no-referrer"
   />
   {% else %}
   <img
     class="card-img-top"
     src="{{ recipe.image.url }}"
     alt="{{ recipe.title }}"
-    referrerpolicy="no-referrer"
   />
   {% endif %}
 </div>
