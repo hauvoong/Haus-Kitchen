@@ -155,12 +155,102 @@ This structure ensures data integrity and supports efficient querying for user i
 Project board for tracking tasks
 https://github.com/users/hauvoong/projects/9
 
-### User Stories
+## User Stories
+
+These User stories below are what make up my MVP:
+
+### Must have:
+<details>
+<summary><strong>User comments</strong></summary>
+
+As a registered user I want to comment on recipes so that I can share my thoughts with others.
+
+**Acceptance criteria:**
+- Add comments to recipes
+- Edit comments
+- Delete comments
+- User must be logged in to access functionality
+- Comments are timestamped with author
+
+</details>
+
+<details>
+<summary><strong>Save favourite recipes</strong></summary>
+
+As a registered user, I want to save recipes to my favorites so that I can easily find recipes I want to try later.
+
+**Acceptance Criteria:**
+- User can save/unsave recipes
+- User must be logged in to save recipes
+- User can view all saved recipes on "Favorites" page
+- Saved recipes persist across sessions
+
+</details>
+
+<details>
+<summary><strong>Responsive site across all devices</strong></summary>
+
+As a user I want to access all features on my phone, tablet and laptop, so that I can use the website in any scenario.
+
+**Acceptance Criteria:**
+- All pages are responsive to any device
+- Navigation converts to hamburger menu on mobile
+- Recipe instructions display in readable font
+- All features work on iOS and Android browsers
+
+</details>
+
+<details>
+<summary><strong>User Registration and Authentication</strong></summary>
+
+As a visitor I want to create an account so that I can access additional functions assigned to my profile, such as favourites and comments.
+
+**Acceptance Criteria:**
+- User can register with username and password
+- User can log in and log out
+- Messaging to confirm you have logged in/out
+- Login state: user will see a login/logout button depending on if they are logged in or not
+
+</details>
+
+<details>
+<summary><strong>Admin Content Moderation</strong></summary>
+
+As an administrator I want to moderate user-generated comments so that I can ensure quality and appropriateness. As well as add, edit or delete recipes.
+
+**Acceptance Criteria:**
+- Admin dashboard shows recipes, comments
+- Admin can approve, edit, or delete comment
+- Admin can approve, edit, or delete recipes
+
+</details>
+
+<details>
+<summary><strong>Browse Recipes</strong></summary>
+
+As a visitor I want to browse recipes without logging in so that I can explore the website before creating an account.
+
+**Acceptance Criteria:**
+- Homepage displays recipes with instructions
+- Recipes are paginated for spacious and breathable content, creating a better experience for the user
+- CTA prompts user to sign up when certain functions are clicked which are exclusive to logged in users
+
+</details>
 
 
+<details>
+<summary><strong>View Recipe Details</strong></summary>
+
+As a user I want to view complete recipe information so that I can follow the instructions to cook the dish
+
+**Acceptance Criteria:**
+- Recipe page displays details such as ingredients, instructions
+- Detail page can be accessed via home page or favourites
+
+</details>
 
 
-Wireframes  
+## Wireframes  
 <img src="static/assets/images/readme/ss1.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 <img src="static/assets/images/readme/ss2.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
 <img src="static/assets/images/readme/ss3.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
