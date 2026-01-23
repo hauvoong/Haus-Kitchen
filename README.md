@@ -3,6 +3,8 @@
 ## Project Overview
 Haus Kitchen is a web application designed to help users discover recipes. The project aims to provide a user-friendly platform for home cooks and food enthusiasts to manage their personal recipe collections and explore new dishes. A responsive site allows for ease of use for a range of users.
 
+Deployed site: https://haus-kitchen-ff7b54bd4236.herokuapp.com/
+
 ### Desktop
 <img src="static/assets/images/readme/homess.png" alt="Desktop screenshot" style="max-width:400px; height:auto; display:block; margin:16px 0;" />
 
@@ -150,7 +152,13 @@ The Entity Relationship Diagram (ERD) illustrates the core data structure of Hau
 This structure ensures data integrity and supports efficient querying for user interactions, recipe management, and favorites.
 
 ## User Experience Design
+Project board for tracking tasks
 https://github.com/users/hauvoong/projects/9
+
+### User Stories
+
+
+
 
 Wireframes  
 <img src="static/assets/images/readme/ss1.png" alt="Wireframe screenshot" style="max-width:300px; height:auto; display:block; margin:8px 0;" />
